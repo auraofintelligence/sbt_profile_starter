@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Step 1 - Foundations | Local Profile Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand-mark" href="index.html"><span class="brand-strange">Strange</span><span><span class="brand-but">but</span> <span class="brand-true">True</span></span></a><div class="nav-links"><a href="index.html">Builder</a><a href="step8.html">Output</a><button class="button nav-delete" type="button" data-delete-all>Delete all</button></div></nav></header>
+    <main id="main">
+      <div class="page-tools"><a href="index.html">Home</a></div>
+      <div class="progress-wrap"><div class="progress-label"><span>Step 1 of 8</span><span>Foundations</span></div><div class="progress"><span style="width: 12.5%"></span></div></div>
+      <section class="page-hero"><p class="eyebrow">Foundations - Grounding</p><h1>Where are you anchored?</h1><p class="hero-lede">Begin with the places, relationships, and lived roots that connect you to Minjerribah.</p></section>
+      <section class="section two-column">
+        <form class="form-panel form-grid" data-step-form="step1" data-next-page="step2.html">
+          <div class="field"><label for="township">Township or local area</label><p class="field-hint">For example, Goompi, Pulan Pulan, Amity Point, or another local place.</p><input id="township" name="township" autocomplete="address-level2" /></div>
+          <div class="field"><label for="connection">Connection to Minjerribah</label><p class="field-hint">Share the plain story of how you are connected here.</p><textarea id="connection" name="connection"></textarea></div>
+          <div class="field"><label for="roots">Physical roots to the island</label><p class="field-hint">Name homes, work, family, Country, care, or regular presence.</p><textarea id="roots" name="roots"></textarea></div>
+          <div class="form-actions"><button class="button primary" type="submit">Save and continue</button><a class="button secondary" href="step8.html">Review output</a></div>
+        </form>
+        <aside class="instructions"><h2>Keep it simple</h2><p>Short, practical answers are enough. You can refine the wording after the Markdown is generated.</p></aside>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
