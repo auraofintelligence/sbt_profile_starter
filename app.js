@@ -6,9 +6,9 @@ const steps = [
     title: "Foundations",
     theme: "Grounding",
     fields: [
-      ["Township or local area", "township"],
-      ["Connection to Minjerribah", "connection"],
-      ["Physical roots to the island", "roots"],
+            ["Where are you living, staying, or based?", "township"],
+            ["Public connection keywords", "roots"],
+            ["Connection to Minjerribah", "connection"],
     ],
   },
   {
@@ -16,9 +16,9 @@ const steps = [
     title: "Passions",
     theme: "Creative & Emotional",
     fields: [
-      ["Local projects, arts, or grassroots ideas", "projects"],
-      ["What sparks my energy", "energy"],
-      ["Creative or emotional threads I want to follow", "threads"],
+      ["Ideas, projects, or improvements you would like to see", "projects"],
+      ["Ongoing gripes or unsolved local problems", "energy"],
+      ["What you would put energy into, or already do", "threads"],
     ],
   },
   {
@@ -26,9 +26,9 @@ const steps = [
     title: "Capabilities",
     theme: "Personal Power",
     fields: [
-      ["Practical skills", "skills"],
-      ["Time or support I can offer", "time"],
-      ["Local knowledge I bring", "knowledge"],
+      ["Practical skills, services, tools, or experience", "skills"],
+      ["Availability, paid services, or support you can realistically offer", "time"],
+      ["Local knowledge, resilience, or recovery experience", "knowledge"],
     ],
   },
   {
@@ -36,9 +36,9 @@ const steps = [
     title: "Care",
     theme: "Community & Compassion",
     fields: [
-      ["How I support the local ecosystem", "support"],
-      ["Clubs, caregiving, or shared responsibilities", "caregiving"],
-      ["Environmental stewardship", "stewardship"],
+      ["How you support people or community, or how you would like to", "support"],
+      ["Groups, clubs, family roles, or shared responsibilities", "caregiving"],
+      ["How you care for Country, water, wildlife, and public places", "stewardship"],
     ],
   },
   {
@@ -46,9 +46,9 @@ const steps = [
     title: "Voice",
     theme: "Expression",
     fields: [
-      ["First civic evidence or local story", "story"],
-      ["Strange But True service or community project reference", "reference"],
-      ["Why this should be remembered", "meaning"],
+      ["A public story about who you are", "story"],
+      ["A story about something you did to better yourself", "reference"],
+      ["A story about helping someone or something else", "meaning"],
     ],
   },
   {
@@ -56,9 +56,9 @@ const steps = [
     title: "Vision",
     theme: "Foresight",
     fields: [
-      ["Joyful future", "joyfulFuture"],
-      ["Responsible future", "responsibleFuture"],
-      ["Abundant future", "abundantFuture"],
+      ["A more joyful island future", "joyfulFuture"],
+      ["A more responsible island future", "responsibleFuture"],
+      ["A more abundant island future", "abundantFuture"],
     ],
   },
   {
@@ -66,9 +66,9 @@ const steps = [
     title: "Ecosystem",
     theme: "Connection to the Whole",
     fields: [
-      ["Island infrastructure links", "infrastructure"],
-      ["Local networks", "networks"],
-      ["How I connect to the whole", "whole"],
+      ["Services, places, or infrastructure you rely on", "infrastructure"],
+      ["People, groups, or networks you connect with", "networks"],
+      ["How you would like to connect or contribute next", "whole"],
     ],
   },
 ];
@@ -140,7 +140,7 @@ function hydrateDeleteAllButtons() {
 
 function getValue(profile, stepKey, fieldKey) {
   const value = clean(profile[stepKey] && profile[stepKey][fieldKey]);
-  return value || "_To be completed._";
+  return value || "_No response provided._";
 }
 
 function markdownSection(profile, step) {
@@ -166,7 +166,7 @@ function buildMarkdown(profile) {
   return [
     "# Minjerribah Local Civic Profile",
     "",
-    `**Township or local area:** ${township || "To be completed."}`,
+    `**Place name:** ${township || "No response provided."}`,
     `**Generated:** ${generatedDate}`,
     "",
     "This profile is a locally held civic record for community connection, practical contribution, public accountability, and neighbourhood memory.",
@@ -223,11 +223,11 @@ function hydrateOutputPage() {
   copyButton.addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(output.value);
-      setStatus("Markdown copied.");
+      setStatus("Profile text copied.");
     } catch (error) {
       output.select();
       document.execCommand("copy");
-      setStatus("Markdown copied.");
+      setStatus("Profile text copied.");
     }
   });
 }
