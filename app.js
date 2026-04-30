@@ -81,6 +81,23 @@ function writeProfile(profile) {
   sessionStorage.setItem(storageKey, JSON.stringify(profile));
 }
 
+function hydrateMobileNav() {
+  const toggle = document.querySelector(".nav-toggle");
+  const links = document.querySelector("#nav-links");
+  if (!toggle || !links) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = links.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  links.addEventListener("click", (event) => {
+    if (!event.target.closest("a, button")) return;
+    links.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+  });
+}
+
 function clean(value) {
   return String(value || "").trim();
 }
@@ -232,6 +249,7 @@ function hydrateOutputPage() {
   });
 }
 
+hydrateMobileNav();
 hydrateStepForm();
 hydrateOutputPage();
 hydrateDeleteAllButtons();
